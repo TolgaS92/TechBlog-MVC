@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Tech-Blog</title>
+</head>
+
+<body>
+    <div class="flex-column justify-space-around">
+        <header class="header-style">
+            <nav class="nav-bar">
+                <a href="/">Home</a>
+                <a href="/">Dashboard</a>
+                <a href="/">Login</a>
+                <a href="/">Logout</a>
+            </nav>
+            <div class="header-box rounded">
+                <a href="/" class="header-txt">The Tech Blog</a>
+            </div>
+        </header>
+        <main class="container container-fluid mt-5">
+            {{!-- Renderer the main page --}}
+            {{{ body }}}
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+
+</html>
