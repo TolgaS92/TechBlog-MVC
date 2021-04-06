@@ -9,7 +9,8 @@ router.get('/', async (req, res) => {
         const postData = await Post.findAll({
             include: [
                 {
-                    model: User
+                    model: User,
+                    attributes: ['name'],
                 },
             ],
             attributes: { exclude: ['password'] },
@@ -20,12 +21,13 @@ router.get('/', async (req, res) => {
             logged_in: req.session.logged_in
         });
     } catch (error) {
+        console.log(error);
         res.status(500).json(error);
     }
 });
 
 
-router.get('/posts/:id', withAuth, async (req,res) => {
+/* router.get('/posts/:id', withAuth, async (req,res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
         const post = postData.get({ plain:true });
@@ -34,7 +36,7 @@ router.get('/posts/:id', withAuth, async (req,res) => {
         console.log(error);
         res.status(500).json(error);
     }
-});
+}); */
 
 
 router.get('/login', (req, res) => {

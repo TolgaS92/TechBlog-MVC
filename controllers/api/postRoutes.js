@@ -8,7 +8,9 @@ router.post('/', async (req, res) => {
             user_id: req.session.user_id,
         });
         res.status(200).render('homepage', {
-            newPost
+            newPost,
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     } catch (error) {
         res.status(400).json(error);

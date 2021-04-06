@@ -13,11 +13,14 @@
 <body>
     <div class="flex-column justify-space-around">
         <header class="header-style">
-            <nav class="nav-bar">
+            <nav class="nav-bar mb-2">
                 <a href="/">Home</a>
+                {{#if logged_in}}
                 <a href="/">Dashboard</a>
+                <a href="/" id="logout">Logout</a>
+                {{else}}
                 <a href="/login">Login</a>
-                <a id="logout">Logout</a>
+                {{/if}}
             </nav>
             <div class="header-box rounded">
                 <a href="/" class="header-txt">The Tech Blog</a>
@@ -27,6 +30,9 @@
             {{!-- Renderer the main page --}}
             {{{ body }}}
         </main>
+        {{#if logged_in}}
+        <script src="/js/logout.js"></script>
+        {{/if}}
         <footer>
 
         </footer>

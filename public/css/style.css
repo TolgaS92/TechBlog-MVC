@@ -35,13 +35,13 @@ body {
   background-color: rgb(105, 105, 24);
 }
 
-.login-form {
+.log-form {
   border: black;
   border-style: double;
   background-color: beige;
 }
 
-.signup-form {
+.sign-form {
   border: black;
   border-style: double;
   background-color: beige;
