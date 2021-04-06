@@ -34,3 +34,15 @@ nav a {
 body {
   background-color: rgb(105, 105, 24);
 }
+
+.login-form {
+  border: black;
+  border-style: double;
+  background-color: beige;
+}
+
+.signup-form {
+  border: black;
+  border-style: double;
+  background-color: beige;
+}
