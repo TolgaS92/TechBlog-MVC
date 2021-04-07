@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 });
 
 
-/* router.get('/posts/:id', withAuth, async (req,res) => {
+router.get('/posts/:id', withAuth, async (req,res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
         const post = postData.get({ plain:true });
@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
         console.log(error);
         res.status(500).json(error);
     }
-}); */
+});
 
 
 router.get('/login', (req, res) => {
@@ -54,5 +54,23 @@ router.get('/signup', (req, res) => {
     }
     res.render('signup');
 });
+
+
+router.get('/dashboard', withAuth, async (req,res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Post }],
+        });
+        const user = userData.get({ plain: true });
+        res.render('dashboard', {
+            ...user,
+            logged_in: true
+        });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
 
 module.exports = router;

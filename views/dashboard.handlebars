@@ -1,0 +1,17 @@
+{{#if posts.length}}
+<div class="container">
+    <div class="col-sm-12">
+        {{#each posts as |post|}}
+        <div class="jumbotron jumbotron-fluid">
+            <h3 class="col-sm-6 display-5">{{post.title}}</h3>
+            <h6 class="col-sm-6 text-right ml-5">Posted on {{format_date date_created}}</h6>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+<div class="container mt-5">
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-dark">+ New Content</button>
+    </div>
+</div>
