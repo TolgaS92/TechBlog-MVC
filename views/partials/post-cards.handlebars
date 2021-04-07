@@ -1,12 +1,6 @@
-<div class="container">
-    <div class="col-sm-12">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <div class="row">
-                    <span class="col-sm-6 display-5">{{title}}</span>
-                    <span class="col-sm-6 text-right">Posted by: {{user.name}} on {{format_date date_created}}</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="list-group">
+    <a class="list-item" href="/dashboard">
+        <span>{{title}}</span>
+        <span>Posted by: {{user.name}} on {{format_date date_created}}</span>
+    </a>
 </div>

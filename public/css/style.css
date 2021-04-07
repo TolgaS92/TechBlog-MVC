@@ -46,3 +46,29 @@ body {
   border-style: double;
   background-color: beige;
 }
+
+.list-group {
+  padding: 1%;
+}
+
+.list-item {
+  margin-bottom: 10px;
+  padding: 2%;
+  border-radius: 25px;
+  background-color: rgb(102, 24, 24);
+  text-decoration: darkblue;
+}
+
+.list-item:hover {
+  background-color: var(--dark);
+}
+
+.new-post {
+  background-color: darkred;
+  font-weight: 700;
+  color: aliceblue;
+}
+
+.card {
+  border: darkred;
+}
