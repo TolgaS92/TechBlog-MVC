@@ -29,4 +29,20 @@ router.get('/newpost', withAuth, (req, res) => {
     }
 });
 
+
+router.get("/edit/:id", withAuth, async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [{ model: User }],
+        });
+        const post = postData.get({ plain: true });
+        res.render('edit', {
+            post,
+            logged_in: true
+        });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
 module.exports = router;

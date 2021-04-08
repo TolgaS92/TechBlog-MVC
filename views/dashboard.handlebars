@@ -1,12 +1,17 @@
 {{#if posts.length}}
-<div class="list-group">
-    {{#each posts as |post|}}
-    <a class="list-item" href="/dashboard">
-        <span>{{post.title}}</span>
-        <span>Posted on {{format_date date_created}}</span>
-    </a>
-    {{/each}}
+{{#each posts as |post|}}
+<div class="card dashboard-card">
+    <div class="list-item">
+        <div class="card-header">
+            <span>{{post.title}}</span>
+            <span>Posted on {{format_date date_created}}</span>
+        </div>
+        <div class="card-body content-card">
+            {{post.content}}
+        </div>
+    </div>
 </div>
+{{/each}}
 {{/if}}
 <div class="container mt-5">
     <div class="d-flex justify-content-center">
