@@ -31,7 +31,10 @@ router.get('/posts/:id', withAuth, async (req,res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
         const post = postData.get({ plain:true });
-        res.render('post', { post, logged_in: req.session.logged_in });
+        res.render('post', {
+            post,
+            logged_in: req.session.logged_in
+        });
     } catch (error) {
         console.log(error);
         res.status(500).json(error);
