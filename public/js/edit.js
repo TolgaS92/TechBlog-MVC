@@ -21,3 +21,18 @@ const editPostHandler = async (event) => {
 
 
 document.querySelector('#update-btn').addEventListener('click', editPostHandler);
+
+
+const deletePostHandler = async (event) => {
+    event.preventDefault();
+    const response = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE'
+    });
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert('Failed to DELETE!')
+    }
+};
+
+document.querySelector('#delete-btn').addEventListener('click', deletePostHandler);
