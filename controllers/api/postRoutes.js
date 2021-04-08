@@ -9,11 +9,6 @@ router.post('/', withAuth, async (req, res) => {
             ...req.body,
             user_id: req.session.user_id,
         });
-        res.status(200).render('homepage', {
-            newPost,
-            logged_in: req.session.logged_in,
-            user_id: req.session.user_id
-        });
         res.redirect('/dashboard');
     } catch (error) {
         res.status(400).json(error);
