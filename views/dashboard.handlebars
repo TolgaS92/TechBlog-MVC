@@ -1,16 +1,18 @@
 {{#if posts.length}}
 {{#each posts as |post|}}
-<div class="card dashboard-card">
-    <div class="list-item">
-        <div class="card-header">
-            <span>{{post.title}}</span>
-            <span>Posted on {{format_date date_created}}</span>
-        </div>
-        <div class="card-body content-card">
-            {{post.content}}
+<a href="/dashboard/edit/{{id}}">
+    <div class="card dashboard-card">
+        <div class="list-item">
+            <div class="card-header">
+                <span>{{post.title}}</span>
+                <span>Posted on {{format_date date_created}}</span>
+            </div>
+            <div class="card-body content-card">
+                {{post.content}}
+            </div>
         </div>
     </div>
-</div>
+</a>
 {{/each}}
 {{/if}}
 <div class="container mt-5">
