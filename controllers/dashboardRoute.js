@@ -21,12 +21,18 @@ router.get('/', withAuth, async (req,res) => {
 });
 
 router.get('/newpost', withAuth, (req, res) => {
-    if(req.session.logged_in) {
-        res.render('new-post',{
-            logged_in: req.session.logged_in
-        });
-        return;
+    try {
+        if(req.session.logged_in) {
+            res.render('new-post',{
+                logged_in: req.session.logged_in
+            });
+            return;
+        }
+        res.redirect('/dashboard');
+    } catch (error) {
+        res.status(500).json(error);
     }
+    
 });
 
 
