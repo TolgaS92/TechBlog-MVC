@@ -1,0 +1,22 @@
+<a class="list-group btn list-item main-list" data-toggle="collapse" href="#collapseExample" role="button"
+    aria-expanded="false" aria-controls="collapseExample">
+    <span class="float-left">{{title}}</span>
+    <span class="float-right">Posted by: {{name}} on {{format_date date_created}}</span>
+</a>
+<div class="collapse mb-3" id="collapseExample">
+    <div class="card dashboard-card">
+        <div class="card-header">
+            <h4>Add Comment</h4>
+        </div>
+        <form method="POST" action="/api/comments" class="card-body">
+            <div class="card-body content-card">
+                <div class="form-group">
+                    <label class="form-label" for="commentary">Comment</label>
+                    <textarea type="text" name="commentary" id="commentary" class="col-sm-12 form-input"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark col-sm-12" id="comment-btn">Comment</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="./js/comment.js"></script>

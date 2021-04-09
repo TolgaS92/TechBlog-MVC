@@ -41,6 +41,20 @@ router.get('/posts/:id', withAuth, async (req,res) => {
     }
 });
 
+router.get('/comments/:id', withAuth, async (req,res) => {
+    try {
+        const newCommentData = await Post.findByPk(req.params.id);
+        const newComment = newCommentData.get({ plain: true });
+        res.render('comment', {
+            newComment,
+            logged_in: req.session.logged_in
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+});
+
 
 router.get('/login', (req, res) => {
     if(req.session.logged_in) {

@@ -77,3 +77,11 @@ body {
   margin-bottom: 10px;
   background-color: rgb(119, 53, 53);
 }
+
+.comment-card {
+  color: beige;
+  border: rgb(119, 53, 53);
+  border-style: groove;
+  margin-bottom: 10px;
+  background-color: rgb(119, 53, 53);
+}
