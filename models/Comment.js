@@ -15,6 +15,13 @@ Comment.init (
             type: DataTypes.STRING,
             allowNull: false,
         },
+        postId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'post',
+                key: 'id'
+            },
+        },
     },
     {
         sequelize,
