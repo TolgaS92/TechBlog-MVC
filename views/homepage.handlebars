@@ -1,8 +1,25 @@
 {{#each posts as |post|}}
-<div class="list-group">
-    <a class="list-item main-list" href="/comments/{{id}}">
-        <span>{{post.title}}</span>
-        <span class="float-right">Posted by: {{user.name}} on {{format_date date_created}}</span>
-    </a>
+<a class="list-group btn list-item main-list" data-toggle="collapse" href="#collapseExample{{id}}" role="button"
+    aria-expanded="false" aria-controls="collapseExample">
+    <span class="float-left">{{post.title}}</span>
+    <span class="float-right">Posted by: {{user.name}} on {{format_date date_created}}</span>
+</a>
+
+<div class="collapse mb-3" id="collapseExample{{id}}">
+    <div class="card dashboard-card">
+        <div class="card-header">
+            <h4>Add Comment</h4>
+        </div>
+        <form method="POST" action="/api/comments/{{id}}" class="card-body">
+            <div class="card-body content-card">
+                <div class="form-group">
+                    <label class="form-label" for="commentary">Comment</label>
+                    <textarea type="text" name="commentary" id="commentary" class="col-sm-12 form-input"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark col-sm-12" id="comment-btn">Comment</button>
+            </div>
+        </form>
+    </div>
 </div>
 {{/each}}
+<script src="./js/comment.js"></script>
