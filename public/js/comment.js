@@ -3,7 +3,7 @@ const id = document.querySelector('#post-id').value;
 const commentHandleForm = async (event) => {
     event.preventDefault();
     const comment = document.querySelector('#commentary').value;
-    const response = await fetch(`/api/comments`, {
+    const response = await fetch(`/api/comments/${id}`, {
         method: 'POST',
         body: JSON.stringify({ comment }),
         headers: { 'Content-Type': 'application/json'},

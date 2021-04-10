@@ -85,3 +85,7 @@ body {
   margin-bottom: 10px;
   background-color: rgb(119, 53, 53);
 }
+
+.single-post {
+  padding: 0.75rem 1.25rem;
+}
