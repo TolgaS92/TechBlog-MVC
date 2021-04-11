@@ -22,12 +22,21 @@ Comment.init (
             key: 'id',
           },
         },
+        user_name: {
+            type:DataTypes.STRING,
+            allowNull: false
+        },
         post_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'post',
                 key: 'id'
             },
+        },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
     },
     {

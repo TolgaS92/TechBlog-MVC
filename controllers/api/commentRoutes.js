@@ -9,7 +9,8 @@ router.post('/', withAuth, async (req,res) => {
             user_id: req.session.user_id,
             post_id: req.body.post_id
         });
-       res.status(200).json(newComment);
+        res.redirect( req.header( 'Referrer' ) );
+       /* res.status(200).json(newComment); */
     } catch (error) {
         res.status(500).json(error)
     }
