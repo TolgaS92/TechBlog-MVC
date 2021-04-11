@@ -28,7 +28,6 @@ router.put('/:id', withAuth, async (req,res) => {
                 }
             });
             res.status(200).json(postUdate)
-            res.redirect('/dashboard');
     } catch (error) {
         res.status(400).json(error);
     }
@@ -42,7 +41,6 @@ router.delete('/:id', withAuth, async (req,res) => {
             }
         });
         res.status(200).json(deletePost);
-        res.redirect('/dashboard');
     } catch (error) {
         res.status(400).json(error);
     }

@@ -9,7 +9,8 @@ router.get('/', async (req, res) => {
         const postData = await Post.findAll({
             include: [
                 {
-                    all: true
+                    model: User,
+                    attributes: ['name'],
                 },
             ],
             attributes: { exclude: ['password'] },
@@ -28,10 +29,21 @@ router.get('/', async (req, res) => {
 
 router.get('/posts/:id', withAuth, async (req,res) => {
     try {
-        const postData = await Post.findByPk(req.params.id);
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+                {
+                    model: Comment
+                },
+            ],
+        });
         const post = postData.get({ plain:true });
-        res.render('post', {
-            post,
+        res.render('single-post', {
+            ...post,
+            user_id: req.session.user_id,
             logged_in: req.session.logged_in
         });
     } catch (error) {
@@ -39,21 +51,6 @@ router.get('/posts/:id', withAuth, async (req,res) => {
         res.status(500).json(error);
     }
 });
-
-router.get('/comments/:id', withAuth, async (req,res) => {
-    try {
-        const newCommentData = await Post.findByPk(req.params.id);
-        const newComment = newCommentData.get({ plain: true });
-        res.render('comment', {
-            newComment,
-            logged_in: req.session.logged_in
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
-});
-
 
 router.get('/login', (req, res) => {
     if(req.session.logged_in) {

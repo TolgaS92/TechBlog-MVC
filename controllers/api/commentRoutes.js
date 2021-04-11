@@ -6,11 +6,8 @@ router.post('/', withAuth, async (req,res) => {
     try {
         const newComment = await Comment.create({
             ...req.body,
-            user_id: req.session.user_id,
-            post_id: req.params.id
         });
-        console.log('Your comment saved! :', newComment);
-        res.redirect('/');
+       res.status(200).json(newComment);
     } catch (error) {
         res.status(500).json(error)
     }

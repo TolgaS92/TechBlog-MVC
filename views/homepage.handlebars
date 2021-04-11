@@ -1,37 +1,6 @@
 {{#each posts as |post|}}
-<a class="list-group btn list-item main-list single-post" data-toggle="collapse" href="#collapseExample{{id}}"
-    role="button" aria-expanded="false" aria-controls="collapseExample">
+<a class="list-group btn list-item main-list single-post" href="/posts/{{post.id}}">
     <span class="float-left">{{post.title}}</span>
+    <span class="float-right">Posted by: {{user.name}} on {{format_date date_created}}</span>
 </a>
-<div class="collapse mb-3" id="collapseExample{{id}}">
-    <div class="card dashboard-card">
-        <div class="list-item">
-            <div class="card-header">
-                <span>{{post.title}}</span>
-                <span class="float-right">Posted by: {{user.name}} on {{format_date date_created}}</span>
-            </div>
-            <div class="card-body content-card">
-                {{post.content}}
-            </div>
-        </div>
-    </div>
-    <div class="card dashboard-card">
-        <div class="card-header">
-            <h4>Add Comment</h4>
-        </div>
-        <form method="POST" action="/api/comments" class="card-body">
-            <div class="card-body content-card">
-                <input type="hidden" name="post-id" value="{{post.id}}" id="post-id" />
-                <div class="form-group">
-                    <label class="form-label" for="commentary">Comment</label>
-                    <textarea type="text" name="commentary" id="commentary" class="col-sm-12 form-input"></textarea>
-                </div>
-                <button type="submit" class="btn btn-dark col-sm-12" id="comment-btn">Comment</button>
-            </div>
-        </form>
-    </div>
-</div>
 {{/each}}
-{{#if logged_in}}
-<script src="./js/comment.js"></script>
-{{/if}}
