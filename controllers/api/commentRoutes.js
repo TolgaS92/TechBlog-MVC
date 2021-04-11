@@ -9,7 +9,8 @@ router.post('/', withAuth, async (req,res) => {
             user_id: req.session.user_id,
             post_id: req.params.id
         });
-        res.status(200).json(newComment);
+        console.log('Your comment saved! :', newComment);
+        res.redirect('/');
     } catch (error) {
         res.status(500).json(error)
     }
