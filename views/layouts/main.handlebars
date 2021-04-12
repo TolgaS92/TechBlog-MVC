@@ -16,6 +16,7 @@
             <nav class="nav-bar mb-3">
                 <a href="/">Home</a>
                 {{#if logged_in}}
+                <a class="text-warning disabled">Welcome {{logged_name}}!</a>
                 <a href="/dashboard">Dashboard</a>
                 <a href="/" id="logout">Logout</a>
                 {{else}}

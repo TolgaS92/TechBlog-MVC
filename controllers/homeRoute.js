@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
         const posts = postData.map((post) => post.get({ plain: true }));
         res.render('homepage', {
             posts,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            logged_name: req.session.logged_name
         });
     } catch (error) {
         console.log(error);
@@ -44,7 +45,8 @@ router.get('/posts/:id', withAuth, async (req,res) => {
         res.render('single-post', {
             ...post,
             user_id: req.session.user_id,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            logged_name: req.session.logged_name
         });
     } catch (error) {
         console.log(error);

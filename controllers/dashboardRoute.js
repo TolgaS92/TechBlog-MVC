@@ -13,7 +13,8 @@ router.get('/', withAuth, async (req,res) => {
         const user = userData.get({ plain: true });
         res.render('dashboard', {
             ...user,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            logged_name: req.session.logged_name,
         });
     } catch (error) {
         res.status(500).json(error);
