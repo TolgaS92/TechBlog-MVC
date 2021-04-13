@@ -11,6 +11,7 @@ router.post('/', async (req,res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
+            //username saved as logged_name whe  signup to the page
             req.session.logged_name = userData.name;
             res.status(200).json(userData);
         })
@@ -36,6 +37,7 @@ router.post('/login', async (req,res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
+            // with login logged_name saved to the session that we can use with handlebars
             req.session.logged_name = userData.name
             res.json({ user: userData, message: 'You are now logged in' });
         });

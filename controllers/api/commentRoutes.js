@@ -9,6 +9,7 @@ router.post('/', withAuth, async (req,res) => {
             user_id: req.session.user_id,
             post_id: req.body.post_id
         });
+        // it will return to the commented post
         res.redirect( req.header( 'Referrer' ) );
        /* res.status(200).json(newComment); */
     } catch (error) {

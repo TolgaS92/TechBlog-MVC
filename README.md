@@ -40,7 +40,19 @@
 
 ## Usage
 
-- User only needs to create an account.
+- When user go to the webpage with deployed application, posts will be on the main page
+
+- If user clicks on the link of the post, it will take it to login / signup page
+
+- User needs to create an account to see full application.
+
+- After creating an account user will be directed to dashboard, and there will be a button that takes user to new post page.
+
+- If user go to the homepage and click on post, it will take user to specific post page
+
+- If user click on the post in the specific post page, it will let the user create a comment on specific post. (Accordion style button added).
+
+- If user click on the specific post on dashboard page, it will let the user update or delete their posts.
 
 ![Signin](./public/Assets/signin.jpg)
 

@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
         res.render('homepage', {
             posts,
             logged_in: req.session.logged_in,
+            // logged_name comes trough sign in /with session so we can use user name with handlebars
             logged_name: req.session.logged_name
         });
     } catch (error) {
